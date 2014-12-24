@@ -10,6 +10,10 @@ class FlashCardsController < ApplicationController
   end
 
   def show
+    @next_card = OriginalCard.random((@flash_card.is_a? OriginalCard) ? @flash_card : nil)
+    if(@next_card != nil)
+      @next_card = original_card_path(@next_card.first)
+    end
     respond_with(@flash_card) 
     # do |format|
     #   if(@flash_card.type == OriginalCard.name) then

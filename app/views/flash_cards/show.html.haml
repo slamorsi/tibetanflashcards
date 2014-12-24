@@ -1,7 +1,10 @@
 %p#notice= notice
 
-.flash_card.center-block{:data=>{:background=>@flash_card.background, :reference=>"#{(@flash_card.is_a? OriginalCard) ? translation_card_path(@flash_card.translation_card) : original_card_path(@flash_card.original_card)}"}}
-  = @flash_card.character
+.flash_card{:data=>{:background=>@flash_card.background, :reference=>"#{(@flash_card.is_a? OriginalCard) ? translation_card_path(@flash_card.translation_card) : original_card_path(@flash_card.original_card)}", :next_card=>@next_card}}
+  .character_block
+    = @flash_card.character
+  -if @next_card != nil
+    %button.btn.btn-primary.btn-block.next_card_indicator Next
 
 
 -if can? :manage, @flash_card

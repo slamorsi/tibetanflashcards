@@ -2,12 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .flash_card{
+  //makes it so it's only as big as it's children allowing for centering
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
   color: #fff;
-  width: 180px;
-  height: 140px;
-  text-align: center;
-  font-size: 80px;
-  box-shadow: 10px 10px 5px #888888;
-  vertical-align: middle;
-  line-height: 140px;
+  .character_block{
+    width: 180px;
+    height: 140px;
+    text-align: center;
+    font-size: 80px;
+    box-shadow: 10px 10px 5px #888888;
+    vertical-align: middle;
+    line-height: 140px;
+  }
+  .next_card_indicator{
+    margin-top: 10px;
+  }
 }
