@@ -1,0 +1,24 @@
+%h1 Listing flash_cards
+
+%table
+  %thead
+    %tr
+      %th Character
+      %th Background
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @flash_cards.each do |flash_card|
+      %tr
+        %td= flash_card.character
+        %td= flash_card.background
+        %td= link_to 'Show', flash_card
+        -#%td= link_to 'Edit', edit_flash_card_path(flash_card)
+        -#%td= link_to 'Destroy', flash_card, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+-if can? :manage, FlashCard
+  = link_to 'New Flash card', new_flash_card_path

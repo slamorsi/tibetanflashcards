@@ -7,11 +7,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-group :development, :test do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
+gem 'cancancan', '~> 1.9'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'haml-rails'
@@ -30,6 +26,10 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rubocop'
+
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
 end
 group :production do
   gem 'rails_12factor'

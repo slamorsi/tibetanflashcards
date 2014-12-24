@@ -1,0 +1,10 @@
+%p#notice= notice
+
+.flash_card.center-block{:data=>{:background=>@flash_card.background, :reference=>"#{(@flash_card.is_a? OriginalCard) ? translation_card_path(@flash_card.translation_card) : original_card_path(@flash_card.original_card)}"}}
+  = @flash_card.character
+
+
+-if can? :manage, @flash_card
+  = link_to 'Edit', edit_flash_card_path(@flash_card)
+  -#\|
+-#= link_to 'Back', flash_cards_path

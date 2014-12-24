@@ -5,11 +5,13 @@
     %title= content_for?(:title) ? yield(:title) : 'Tibetanflashcards'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Tibetanflashcards'}"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
     %header
-      = render 'layouts/navigation'
-    %main{:role => "main"}
+      -if user_signed_in?
+        = render 'layouts/navigation'
+    %main.container{:role => "main"}
       = render 'layouts/messages'
       = yield
+
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
