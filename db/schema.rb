@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141224191225) do
+ActiveRecord::Schema.define(version: 20141225194852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20141224191225) do
     t.datetime "updated_at",       null: false
     t.integer  "original_card_id"
     t.string   "type"
+    t.string   "audio_file"
   end
 
   add_index "flash_cards", ["original_card_id"], name: "index_flash_cards_on_original_card_id", using: :btree

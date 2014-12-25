@@ -1,6 +1,9 @@
 class FlashCardsController < ApplicationController
   load_and_authorize_resource
   # before_action :set_flash_card, only: [:show, :edit, :update, :destroy]
+  before_action :set_type, only: [:new]
+
+  before_action :set_s3_post, only: [:new, :edit]
 
   respond_to :html
 
@@ -52,8 +55,18 @@ class FlashCardsController < ApplicationController
     # def set_flash_card
     #   @flash_card = FlashCard.find(params[:id])
     # end
+    def set_type
+      @flash_card.type = params[:type]
+    end
+
+    def set_s3_post
+      if(@flash_card.type == OriginalCard.name)
+        #add this back in part of key name if uniqueness is required #{SecureRandom.uuid} 
+        @s3_direct_post = S3_BUCKET.presigned_post(key: "audio/${filename}", success_action_status: 201, acl: :public_read)
+      end
+    end
 
     def flash_card_params
-      params.require(:flash_card).permit(:character, :background, :type, :original_card_id)
+      params.require(:flash_card).permit(:character, :background, :type, :original_card_id, :audio_file)
     end
 end

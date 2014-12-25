@@ -6,11 +6,18 @@
         - @flash_card.errors.full_messages.each do |msg|
           %li= msg
 
+  = f.hidden_field :type, value: @flash_card.type
   .field
     = f.label :character
     = f.text_field :character
   .field
     = f.label :background
     = f.text_field :background
+  -if @flash_card.type == OriginalCard.name
+    .field
+      = f.label :audio_file
+      = f.file_field :audio_file, data: {s3_url: @s3_direct_post.url.to_s, s3_data: @s3_direct_post.fields.to_json, s3_host: @s3_direct_post.url.host.to_s}
+      .progress.hide
+        .progress-bar{role: "progressbar"}
   .actions
     = f.submit 'Save'
