@@ -39,7 +39,7 @@ ready = ()->
   )
 
   #https://devcenter.heroku.com/articles/direct-to-s3-image-uploads-in-rails
-  $("form.new_flash_card, form.edit_original_card").find('input:file').each((i, elem)->
+  $("form.new_flash_card, form.edit_flash_card").find('input:file').each((i, elem)->
     $file = $(elem)
     $form = $($file.parents('form:first'))
     $submit = $form.find('input[type="submit"]')
