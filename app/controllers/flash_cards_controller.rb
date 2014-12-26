@@ -3,7 +3,7 @@ class FlashCardsController < ApplicationController
   # before_action :set_flash_card, only: [:show, :edit, :update, :destroy]
   before_action :set_type, only: [:new]
 
-  before_action :set_s3_post, only: [:new, :edit]
+  before_action :set_s3_post, only: [:new, :edit, :create, :update]
 
   respond_to :html
 
@@ -17,6 +17,13 @@ class FlashCardsController < ApplicationController
     if(@next_card != nil)
       @next_card = original_card_path(@next_card.first)
     end
+    @reference_url = "#"
+    if (@flash_card.is_a? OriginalCard) && @flash_card.translation_card != nil then
+      @reference_url = translation_card_path(@flash_card.translation_card)
+    elsif (@flash_card.is_a? TranslationCard) &&  @flash_card.original_card != nil then
+      @reference_url = original_card_path(@flash_card.original_card)
+    end
+
     respond_with(@flash_card) 
     # do |format|
     #   if(@flash_card.type == OriginalCard.name) then
@@ -56,7 +63,7 @@ class FlashCardsController < ApplicationController
     #   @flash_card = FlashCard.find(params[:id])
     # end
     def set_type
-      @flash_card.type = params[:type]
+      @flash_card.type ||= params[:type]
     end
 
     def set_s3_post

@@ -1,8 +1,15 @@
 %p#notice= notice
 
-.flash_card{:data=>{:background=>@flash_card.background, :reference=>"#{(@flash_card.is_a? OriginalCard) ? translation_card_path(@flash_card.translation_card) : original_card_path(@flash_card.original_card)}", :next_card=>@next_card}}
+.flash_card{:data=>{:background=>@flash_card.background, :reference=>@reference_url, :next_card=>@next_card}}
   .character_block
     = @flash_card.character
+
+  -if (@flash_card.is_a? OriginalCard) && !@flash_card.audio_file.empty?
+    -#%audio{src: url_with_protocol(@flash_card.audio_file), preload: "auto"}
+    
+    .btn.btn-link.audio-play-pause.hide{data: {src: url_with_protocol(@flash_card.audio_file)}}
+      %span.glyphicon.glyphicon-volume-up.audio-play
+
   -if @next_card != nil
     %button.btn.btn-primary.btn-block.next_card_indicator Next
 
@@ -11,3 +18,5 @@
   = link_to 'Edit', edit_flash_card_path(@flash_card)
   -#\|
 -#= link_to 'Back', flash_cards_path
+:javascript
+  swfAudioPlayerUrl = "#{asset_url('soundmanager2/swf/soundmanager2.swf')}"

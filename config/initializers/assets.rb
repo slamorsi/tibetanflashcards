@@ -8,4 +8,4 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( flash_card.js )
+Rails.application.config.assets.precompile += %w( soundmanager2/swf/soundmanager2.swf )

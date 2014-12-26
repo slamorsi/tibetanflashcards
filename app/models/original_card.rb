@@ -5,7 +5,7 @@ class OriginalCard < FlashCard
 
   def set_type
     self.type ||= OriginalCard.name if self.new_record?
-    self.translation_card ||= TranslationCard.new
+    # self.translation_card ||= TranslationCard.new
   end
 
   # attr_accessor :character, :background

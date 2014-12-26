@@ -1,2 +1,3 @@
 //= require jquery.ui.widget
-//= require_tree .
+//= require jquery.fileupload.js
+//= require soundmanager2/script/soundmanager2-jsmin

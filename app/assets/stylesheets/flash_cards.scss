@@ -7,6 +7,21 @@
   margin-left: auto;
   margin-right: auto;
   color: #fff;
+  // .audiojs{
+  //   display: none;
+  // }
+  .audio-play-pause{
+    margin-top: 10px;
+    float: right;
+    &.playing{
+      .audio-play{
+        color: green;
+      }
+    }
+    .audio-play{
+      color: black;
+    }
+  }
   .character_block{
     width: 180px;
     height: 140px;
