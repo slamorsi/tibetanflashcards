@@ -153,7 +153,6 @@ GEM
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.0)
-    rack-cors (0.3.0)
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
       rack (~> 1.1)
@@ -278,7 +277,6 @@ DEPENDENCIES
   pry-rails
   pry-rescue
   quiet_assets
-  rack-cors
   rails (= 4.2.0)
   rails_12factor
   rails_admin

@@ -36,5 +36,4 @@ group :development, :test do
 end
 group :production do
   gem 'rails_12factor'
-  gem 'rack-cors', :require => 'rack/cors'
 end

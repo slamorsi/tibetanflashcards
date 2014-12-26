@@ -1,4 +1,5 @@
-= form_for @flash_card do |f|
+-# set as flash_card so when posting, the flash_card param is set since that's what the controller is looking for instead of original_card or translation_card
+= form_for(@flash_card, as: :flash_card) do |f|
   - if @flash_card.errors.any?
     #error_explanation
       %h2= "#{pluralize(@flash_card.errors.count, "error")} prohibited this flash_card from being saved:"
