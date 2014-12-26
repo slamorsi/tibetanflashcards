@@ -1,27 +1,28 @@
-ready = ->
-  soundManager.setup
-    url: swfAudioPlayerUrl,
-    #flashVersion: 9, #optional: shiny features (default = 8)
-    #optional: ignore Flash where possible, use 100% HTML5 mode
-    preferFlash: false,
-    onready: ()->
-      #Ready to use; soundManager.createSound() etc. can now be called.
-      $('.audio-play-pause').each (i, elem)->
-        $this = $(elem)
-        sound = soundManager.createSound {
-          url: $this.data('src')
-          autoLoad: true
-        }
-        $this
-          .removeClass('hide')
-          .on('click',()->
-            if(sound.playState == 0)
-              sound.play()
-            else
-              sound.stop()
-            $this.toggleClass('playing')
-          )
-  
+ready = ()->
+  if($('.audio-play-pause').length > 0)
+    soundManager.setup(
+      url: swfAudioPlayerUrl,
+      #flashVersion: 9, #optional: shiny features (default = 8)
+      #optional: ignore Flash where possible, use 100% HTML5 mode
+      preferFlash: false,
+      onready: ()->
+        #Ready to use; soundManager.createSound() etc. can now be called.
+        $('.audio-play-pause').each (i, elem)->
+          $this = $(elem)
+          sound = soundManager.createSound {
+            url: $this.data('src')
+            autoLoad: true
+          }
+          $this
+            .removeClass('hide')
+            .on('click',()->
+              if(sound.playState == 0)
+                sound.play()
+              else
+                sound.stop()
+              $this.toggleClass('playing')
+            )
+    )
   $(".flash_card").each((index)->
     $card = $(this)
     $card.find(".character_block")
