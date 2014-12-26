@@ -4,7 +4,7 @@
   .character_block
     = @flash_card.character
 
-  -if (@flash_card.is_a? OriginalCard) && !@flash_card.audio_file.empty?
+  -if (@flash_card.is_a? OriginalCard) && !@flash_card.audio_file.nil?
     -#%audio{src: url_with_protocol(@flash_card.audio_file), preload: "auto"}
     
     .btn.btn-link.audio-play-pause.hide{data: {src: url_with_protocol(@flash_card.audio_file)}}
