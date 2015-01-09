@@ -9,7 +9,11 @@ class FlashCardsController < ApplicationController
 
   def index
     # @flash_cards = FlashCard.all
-    respond_with(@flash_cards)
+    @original_cards = OriginalCard.all
+    if(@original_cards.length < 30)
+      @original_cards[29] = nil
+    end
+    respond_with(@original_cards)
   end
 
   def show

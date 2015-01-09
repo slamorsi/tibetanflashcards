@@ -10,20 +10,19 @@ class OriginalCard < FlashCard
 
   # attr_accessor :character, :background
   accepts_nested_attributes_for :translation_card, :allow_destroy => true
-    def translation_card_id
-      self.translation_card.try :id
-    end
-    def translation_card_id=(id)
-      self.translation_card = TranslationCard.find_by_id(id)
-    end
+  def translation_card_id
+    self.translation_card.try :id
+  end
+  def translation_card_id=(id)
+    self.translation_card = TranslationCard.find_by_id(id)
+  end
 
   rails_admin do
     configure :translation_card do
       render do
-        # partial "flash_cards_form"
-        # bindings[:object].translation_card = TranslationCard.new
-        Rails.logger.debug(bindings[:object].translation_card)
-        bindings[:view].render :partial => partial.to_s, :object => TranslationCard.new, :as => :flash_card, :locals => {:field => self, :form => bindings[:form]}
+        bindings[:object].build_translation_card if bindings[:object].translation_card.nil?
+        bindings[:object].translation_card.type = TranslationCard.name
+        bindings[:view].render :partial => partial.to_s, :locals => {:field => self, :form => bindings[:form]}
       end
     end
 

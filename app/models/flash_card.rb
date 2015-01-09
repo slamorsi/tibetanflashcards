@@ -5,6 +5,6 @@ class FlashCard < ActiveRecord::Base
   after_initialize :set_bg
 
   def set_bg
-    self.background ||= "#000" if self.new_record?
+    self.background ||= "#eee" if self.new_record?
   end
 end

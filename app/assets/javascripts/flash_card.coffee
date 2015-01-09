@@ -1,4 +1,5 @@
 ready = ()->
+  soundManager.stopAll()
   if($('.audio-play-pause').length > 0)
     soundManager.setup(
       url: swfAudioPlayerUrl,
@@ -18,7 +19,7 @@ ready = ()->
             .on('click',()->
               if(sound.playState == 0)
                 sound.play()
-              else
+              else if sound.stop
                 sound.stop()
               $this.toggleClass('playing')
             )
@@ -27,15 +28,15 @@ ready = ()->
     $card = $(this)
     $card.find(".character_block")
       .css("background", $card.data("background"))
-      .on("click",()->
-        if($card.data("reference") != undefined)
-          document.location.href = $card.data("reference");
-      )
+      # .on("click",()->
+      #   if($card.data("reference") != undefined)
+      #     document.location.href = $card.data("reference");
+      # )
 
-    if($card.data("next-card") != undefined)
-      $card.find(".next_card_indicator").on("click", ()->
-        document.location.href = $card.data("next-card");
-      )
+    # if($card.data("next-card") != undefined)
+    #   $card.find(".next_card_indicator").on("click", ()->
+    #     document.location.href = $card.data("next-card");
+    #   )
   )
 
   #https://devcenter.heroku.com/articles/direct-to-s3-image-uploads-in-rails
@@ -89,5 +90,9 @@ ready = ()->
     )
   )
 
+stopSound = ->
+  soundManager.stopAll()
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
+$(document).on('page:before-change', stopSound)

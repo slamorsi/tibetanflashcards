@@ -1,18 +1,74 @@
 // Place all the styles related to the FlashCards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.flash_card{
+.col-centered{
+    float: none !important;
+    margin: 0 auto;
+}
+
+.flash_card_container{
+  text-align: center;
+
   //makes it so it's only as big as it's children allowing for centering
   display: table;
   margin-left: auto;
   margin-right: auto;
+
+  .next_card_indicator{
+    margin-top: 10px;
+    font-size: 70px;
+    color: #666;
+    &:hover, &:active, &:focus, &:visited{
+      background-color: transparent;
+      text-decoration: none;
+      color: #666;
+    }
+  }
+}
+.view_toggle{
+  background-color: red;
   color: #fff;
+  &:hover, &:active, &:focus{
+    background-color: darken(red, 10%);
+  }
+  &:visited{
+    color: #fff;
+  }                                                                                                            
+}
+.flash_cards_index{
+  td{
+    border-width: 2px !important;
+  }
+  .character_block{
+    text-align: center;
+    font-size: 35px;
+    vertical-align: middle;
+    height: 42px;
+  }
+  .card_link{
+    &:visited{
+      color: #000;
+    }
+    &:hover, &:active, &:focus{
+      text-decoration: none;
+    }
+  }
+}
+.flash_card{
+  color: #000;
   // .audiojs{
   //   display: none;
   // }
+  &:hover, &:active, &:focus, &:visited{
+    color: #000;
+    background-color: transparent;
+    text-decoration: none;
+  }
   .audio-play-pause{
-    margin-top: 10px;
-    float: right;
+    margin-top: -60px;
+    font-size: 40px;
+    display: block;
+    vertical-align: bottom;
     &.playing{
       .audio-play{
         color: green;
@@ -30,8 +86,5 @@
     box-shadow: 10px 10px 5px #888888;
     vertical-align: middle;
     line-height: 140px;
-  }
-  .next_card_indicator{
-    margin-top: 10px;
   }
 }

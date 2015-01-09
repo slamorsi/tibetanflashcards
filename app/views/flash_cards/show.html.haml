@@ -1,22 +1,27 @@
 %p#notice= notice
 
-.flash_card{:data=>{:background=>@flash_card.background, :reference=>@reference_url, :next_card=>@next_card}}
-  .character_block
-    = @flash_card.character
-
-  -if (@flash_card.is_a? OriginalCard) && !@flash_card.audio_file.nil?
-    -#%audio{src: url_with_protocol(@flash_card.audio_file), preload: "auto"}
-    
-    .btn.btn-link.audio-play-pause.hide{data: {src: url_with_protocol(@flash_card.audio_file)}}
-      %span.glyphicon.glyphicon-volume-up.audio-play
-
-  -if @next_card != nil
-    %button.btn.btn-primary.btn-block.next_card_indicator Next
-
 
 -if can? :manage, @flash_card
   = link_to 'Edit', edit_flash_card_path(@flash_card)
-  -#\|
+.flash_card_container
+  %a.flash_card{:href=>@reference_url, :data=>{:background=>@flash_card.background}}
+    .character_block
+      %span= @flash_card.character
+
+      -if (@flash_card.is_a? OriginalCard) && !@flash_card.audio_file.nil? && !(@flash_card.audio_file.empty?)
+        -#%audio{src: url_with_protocol(@flash_card.audio_file), preload: "auto"}
+        
+        %btn.btn.btn-link.audio-play-pause.hide{data: {src: url_with_protocol(@flash_card.audio_file)}}
+          %span.glyphicon.glyphicon-volume-up.audio-play
+
+    -if @next_card != nil
+      %a.next_card_indicator{:href=>@next_card, 'aria-label'=>"Next"}
+        %span.glyphicon.glyphicon-arrow-right
+.row
+  .col-xs-12.col-md-offset-8
+    .center-block.text-center.hidden-md.hidden-lg
+      %a.btn.view_toggle{:href=> flash_cards_path} view alphabet table
+    %a.hidden-sm.hidden-xs.btn.view_toggle{:href=> original_cards_path} view alphabet table
 -#= link_to 'Back', flash_cards_path
 :javascript
   swfAudioPlayerUrl = "#{asset_url('soundmanager2/swf/soundmanager2.swf')}"

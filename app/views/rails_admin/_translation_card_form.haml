@@ -1,0 +1,26 @@
+-# set as flash_card so when posting, the flash_card param is set since that's what the controller is looking for instead of original_card or translation_card
+= form.fields_for(field.name) do |f|
+  - if translation_card.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(translation_card.errors.count, "error")} prohibited this flash_card from being saved:"
+      %ul
+        - translation_card.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.hidden_field :type, value: translation_card.type
+  .field
+    = f.label :character
+    = f.text_field :character
+  .field
+    = f.label :background
+    = f.text_field :background
+  -if translation_card.type == OriginalCard.name
+    .field
+      = f.label :audio_file
+      = f.file_field :audio_file
+      .progress.hide
+        .progress-bar{role: "progressbar"}
+  .actions
+    = f.submit 'Save'
+- add = "<i class='icon-plus icon-white'></i> Add Translation Card".html_safe
+= form.link_to_add add, field.name, { :class => 'btn btn-info', :href=>}
