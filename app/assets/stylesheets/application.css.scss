@@ -16,4 +16,8 @@
 
 main.container{
   // background: grey;
+  .title, .subtitle{
+    text-align: center;
+    color: red;
+  }
 }

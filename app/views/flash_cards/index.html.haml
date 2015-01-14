@@ -13,29 +13,11 @@
             -(0..3).each do |i|
               -if row*4+i < @original_cards.length && @original_cards[row*4+i] != nil
                 %td
-                  %a.card_link{:href=>original_card_path(@original_cards[row*4+i]), :data=>{:background=>@original_cards[row*4+i].background}}
-                    .character_block
-                      %span= @original_cards[row*4+i].character
-
-
-
-
-/ .row.flash_cards_container
-/   .col-xs-6.col-centered.col-sm-3
-/     .row
-/       - @flash_cards.each do |flash_card|
-/         .col-xs-3.card_column
-/           .flash_card_index
-/             .character_block
-/               %span= flash_card.character
-
-/               -if (@flash_card.is_a? OriginalCard) && !@flash_card.audio_file.nil?
-/                 -#%audio{src: url_with_protocol(@flash_card.audio_file), preload: "auto"}
-                
-/                 %btn.btn.btn-link.audio-play-pause.hide{data: {src: url_with_protocol(flash_card.audio_file)}}
-/                   %span.glyphicon.glyphicon-volume-up.audio-play
+                  .character_block
+                    %span.original= @original_cards[row*4+i].character
+                    %span.translation.hide= @original_cards[row*4+i].translation_card.character
 .row
-  .col-xs-12.col-md-offset-8
+  .col-md-offset-8
     %a.hidden-sm.hidden-xs.btn.view_toggle{:href=> original_card_path(OriginalCard.first)} enter flashcard code
     .center-block.text-center.hidden-md.hidden-lg
       %a.btn.view_toggle{:href=> original_card_path(OriginalCard.first)} enter flashcard code

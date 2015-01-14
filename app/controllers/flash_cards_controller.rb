@@ -9,6 +9,7 @@ class FlashCardsController < ApplicationController
 
   def index
     # @flash_cards = FlashCard.all
+    @subTitle = "consanants"
     @original_cards = OriginalCard.all
     if(@original_cards.length < 30)
       @original_cards[29] = nil

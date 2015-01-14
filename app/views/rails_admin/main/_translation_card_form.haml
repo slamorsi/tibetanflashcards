@@ -1,5 +1,4 @@
 -# set as flash_card so when posting, the flash_card param is set since that's what the controller is looking for instead of original_card or @object
-=debug @object
 = form.fields_for(:translation_card) do |f|
   - if @object.errors.any?
     #error_explanation

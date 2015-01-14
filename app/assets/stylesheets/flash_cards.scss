@@ -38,6 +38,7 @@
 .flash_cards_index{
   td{
     border-width: 2px !important;
+    padding-bottom: 20px !important;
   }
   .character_block{
     text-align: center;
@@ -45,14 +46,14 @@
     vertical-align: middle;
     height: 42px;
   }
-  .card_link{
-    &:visited{
-      color: #000;
-    }
-    &:hover, &:active, &:focus{
-      text-decoration: none;
-    }
-  }
+  // .card_link{
+  //   &:visited{
+  //     color: #000;
+  //   }
+  //   &:hover, &:active, &:focus{
+  //     text-decoration: none;
+  //   }
+  // }
 }
 .flash_card{
   color: #000;

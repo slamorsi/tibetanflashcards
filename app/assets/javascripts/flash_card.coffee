@@ -16,7 +16,9 @@ ready = ()->
           }
           $this
             .removeClass('hide')
-            .on('click',()->
+            .on('click',(e)->
+              e.stopPropagation()
+              e.preventDefault()
               if(sound.playState == 0)
                 sound.play()
               else if sound.stop
@@ -24,6 +26,13 @@ ready = ()->
               $this.toggleClass('playing')
             )
     )
+
+  $(".flash_cards_index .character_block").on('click', ()->
+    $this = $(@)
+    $this.find('.original').toggleClass('hide')
+    $this.find('.translation').toggleClass('hide')
+  )
+
   $(".flash_card").each((index)->
     $card = $(this)
     $card.find(".character_block")
@@ -38,6 +47,13 @@ ready = ()->
     #     document.location.href = $card.data("next-card");
     #   )
   )
+
+  $next = $(".next_card_indicator");
+  if($next.length > 0)
+    $("body").swipe(
+      swipeLeft: (event, direction, distance, duration, fingerCount, fingerData)->
+        Turbolinks.visit($next.attr('href'))
+    )
 
   #https://devcenter.heroku.com/articles/direct-to-s3-image-uploads-in-rails
   $("form.new_flash_card, form.edit_flash_card").find('input:file').each((i, elem)->
