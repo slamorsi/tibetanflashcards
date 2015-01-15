@@ -57,6 +57,22 @@
     font-size: 35px;
     vertical-align: middle;
     height: 42px;
+    margin-bottom: 15px;
+    .audio-play-pause{
+      // margin-top: -60px;
+      font-size: 25px;
+      margin-top: -15px;
+      display: block;
+      vertical-align: bottom;
+      &.playing{
+        .audio-play{
+          color: green;
+        }
+      }
+      .audio-play{
+        color: black;
+      }
+    }
   }
   // .card_link{
   //   &:visited{

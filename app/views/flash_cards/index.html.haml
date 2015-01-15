@@ -15,9 +15,15 @@
                 %td
                   .character_block
                     %span.original= @original_cards[row*4+i].character
-                    %span.translation.hide= @original_cards[row*4+i].translation_card.character
+                    %span.translation.hide
+                      = @original_cards[row*4+i].translation_card.character
+                      -if !@original_cards[row*4+i].audio_file.nil? && !(@original_cards[row*4+i].audio_file.empty?)
+                        %btn.btn.btn-link.audio-play-pause.hide{data: {src: url_with_protocol(@original_cards[row*4+i].audio_file)}}
+                          %span.glyphicon.glyphicon-volume-up.audio-play
 .row
   .col-md-offset-8
     %a.hidden-sm.hidden-xs.btn.view_toggle{:href=> original_card_path(OriginalCard.first)} enter flashcard code
     .center-block.text-center.hidden-md.hidden-lg
       %a.btn.view_toggle{:href=> original_card_path(OriginalCard.first)} enter flashcard code
+:javascript
+  swfAudioPlayerUrl = "#{asset_url('soundmanager2/swf/soundmanager2.swf')}"
