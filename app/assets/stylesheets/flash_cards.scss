@@ -1,9 +1,16 @@
+@import "bootstrap";
 // Place all the styles related to the FlashCards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .col-centered{
     float: none !important;
     margin: 0 auto;
+}
+
+.character_block{
+  .original{
+    font-family: 'jomolhari', $font-family-base;
+  }
 }
 
 .flash_card_container{

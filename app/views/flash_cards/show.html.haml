@@ -6,7 +6,7 @@
 .flash_card_container
   %a.flash_card{:href=>@reference_url, :data=>{:background=>@flash_card.background}}
     .character_block
-      %span= @flash_card.character
+      %span{class: (@flash_card.is_a? OriginalCard) ? "original" : "translation"}= @flash_card.character
 
       -if (@flash_card.is_a? OriginalCard) && !@flash_card.audio_file.nil? && !(@flash_card.audio_file.empty?)
         -#%audio{src: url_with_protocol(@flash_card.audio_file), preload: "auto"}
