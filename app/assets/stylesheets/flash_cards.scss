@@ -8,7 +8,6 @@
 
 .flash_card_container{
   text-align: center;
-
   //makes it so it's only as big as it's children allowing for centering
   display: table;
   margin-left: auto;
@@ -16,12 +15,14 @@
 
   .next_card_indicator{
     margin-top: 10px;
-    font-size: 70px;
-    color: #666;
+    i{
+      color: #2f2f2f;
+      font-size: 70px;
+    }
     &:hover, &:active, &:focus, &:visited{
       background-color: transparent;
       text-decoration: none;
-      color: #666;
+      // color: #666;
     }
   }
 }
@@ -36,6 +37,10 @@
   }                                                                                                            
 }
 .flash_cards_index{
+  table{
+    background: #eee;
+    opacity: .8;
+  }
   td{
     border-width: 2px !important;
     padding-bottom: 20px !important;
@@ -84,7 +89,8 @@
     height: 140px;
     text-align: center;
     font-size: 80px;
-    box-shadow: 10px 10px 5px #888888;
+    border: 2px solid black;
+    opacity: .9;
     vertical-align: middle;
     line-height: 140px;
   }

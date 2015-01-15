@@ -3,7 +3,7 @@ class TranslationCard < FlashCard
 
   after_initialize :set_type
   def set_type
-    self.type ||= OriginalCard.name if self.new_record?
+    self.type ||= TranslationCard.name if self.new_record?
   end
 
   rails_admin do

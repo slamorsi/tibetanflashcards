@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,9 +14,19 @@
  *= require_tree .
  *= require_self
  */
+ @font-face { 
+  font-family: 'jomolhari'; 
+  src: asset-url('Jomolhari-ID-a3d.ttf') format('truetype'); 
+}
+$font-family-base: 'jomolhari', "Helvetica Neue", Helvetica, Arial, sans-serif;
+@import "bootstrap";
+ body{
+  background: image-url("background.jpg") center no-repeat;
+  background-size: 100% 100%;
+ }
 
 main.container{
-  // background: grey;
+  background: none;
   .title, .subtitle{
     text-align: center;
     color: red;

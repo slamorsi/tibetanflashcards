@@ -1,8 +1,8 @@
 %p#notice= notice
 
 
--if can? :manage, @flash_card
-  = link_to 'Edit', edit_flash_card_path(@flash_card)
+/ -if can? :manage, @flash_card
+/   = link_to 'Edit', edit_flash_card_path(@flash_card)
 .flash_card_container
   %a.flash_card{:href=>@reference_url, :data=>{:background=>@flash_card.background}}
     .character_block
@@ -16,7 +16,7 @@
 
     -if @next_card != nil
       %a.next_card_indicator{:href=>@next_card, 'aria-label'=>"Next"}
-        %span.glyphicon.glyphicon-arrow-right
+        %i.icon-arrow-right
 .row
   .col-md-offset-8
     .center-block.text-center.hidden-md.hidden-lg

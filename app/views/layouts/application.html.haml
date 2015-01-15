@@ -5,8 +5,9 @@
     %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }
     %title= content_for?(:title) ? yield(:title) : 'Tibetanflashcards'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Tibetanflashcards'}"}
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application', "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css", media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
   %body
     %header
       -if user_signed_in?
@@ -14,8 +15,8 @@
     %main.container{:role => "main"}
       = render 'layouts/messages'
       %h2.title
-        =@title || "Tibetan Flash Cards"
+        =@title || "Tibetan Flashcards"
       %h4.subtitle=@subTitle
       = yield
 
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    
