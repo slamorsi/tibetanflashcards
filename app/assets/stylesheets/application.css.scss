@@ -12,6 +12,8 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require ../../../vendor/assets/stylesheets/font_awesome/font-awesome
+ *= require ../../../vendor/assets/stylesheets/font_awesome/font-awesome-ie7
  *= require_self
  */
  @font-face { 
@@ -25,10 +27,10 @@
   background-size: 100% 100%;
  }
 
+.title, .subtitle{
+  text-align: center;
+  color: red;
+}
 main.container{
   background: none;
-  .title, .subtitle{
-    text-align: center;
-    color: red;
-  }
 }

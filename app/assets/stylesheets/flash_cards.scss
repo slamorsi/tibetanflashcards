@@ -23,8 +23,8 @@
   .next_card_indicator{
     margin-top: 10px;
     i{
-      color: #2f2f2f;
-      font-size: 70px;
+      color: rgb(167, 167, 167);
+      font-size: 60px;
     }
     &:hover, &:active, &:focus, &:visited{
       background-color: transparent;
@@ -50,18 +50,22 @@
   }
   td{
     border-width: 2px !important;
-    padding-bottom: 20px !important;
+    // padding-bottom: 20px !important;
   }
   .character_block{
     text-align: center;
     font-size: 35px;
     vertical-align: middle;
-    height: 42px;
-    margin-bottom: 15px;
+    // height: 42px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    .original, .translation{
+      vertical-align: middle;
+    }
     .audio-play-pause{
       // margin-top: -60px;
       font-size: 25px;
-      margin-top: -15px;
+      // margin-top: -10px;
       display: block;
       vertical-align: bottom;
       &.playing{
@@ -94,7 +98,8 @@
     text-decoration: none;
   }
   .audio-play-pause{
-    margin-top: -60px;
+    // margin-top: -60px;
+    // margin-top: -10px;
     font-size: 40px;
     display: block;
     vertical-align: bottom;
@@ -108,13 +113,19 @@
     }
   }
   .character_block{
-    width: 180px;
-    height: 140px;
+    width: 210px;
+    // height: 140px;
     text-align: center;
     font-size: 80px;
     border: 2px solid black;
     opacity: .9;
     vertical-align: middle;
-    line-height: 140px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    padding-top:8px;
+    // line-height: 136px;
+    .original, .translation{
+      vertical-align: middle;
+    }
   }
 }

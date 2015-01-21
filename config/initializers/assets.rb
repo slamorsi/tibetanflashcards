@@ -8,4 +8,4 @@ Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "fo
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( soundmanager2/swf/soundmanager2.swf Jomolhari-ID-a3d.ttf )
+Rails.application.config.assets.precompile += %w( soundmanager2/swf/soundmanager2.swf Jomolhari-ID-a3d.ttf FontAwesome.otf fontawesome-webfont.svg fontawesome-webfont.woff fontawesome-webfont.eot fontawesome-webfont.ttf )

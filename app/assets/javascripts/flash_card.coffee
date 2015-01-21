@@ -13,18 +13,23 @@ ready = ()->
           sound = soundManager.createSound {
             url: $this.data('src')
             autoLoad: true
+            onfinish: ()->
+              $this.removeClass('playing')
           }
-          $this
-            .removeClass('hide')
-            .on('click',(e)->
-              e.stopPropagation()
-              e.preventDefault()
-              if(sound.playState == 0)
-                sound.play()
-              else if sound.stop
-                sound.stop()
-              $this.toggleClass('playing')
-            )
+          if(true || sound.readyState != 2)
+            $this
+              .removeClass('hide')
+              .on('click',(e)->
+                e.stopPropagation()
+                e.preventDefault()
+                if(sound.playState == 0)
+                  sound.play()
+                else if sound.stop
+                  sound.stop()
+
+                if(sound.readyState != 2)
+                  $this.toggleClass('playing')
+              )
     )
 
   $(".flash_cards_index .character_block").on('click', ()->

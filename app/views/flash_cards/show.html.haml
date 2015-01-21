@@ -7,11 +7,10 @@
   %a.flash_card{:href=>@reference_url, :data=>{:background=>@flash_card.background}}
     .character_block
       %span{class: (@flash_card.is_a? OriginalCard) ? "original" : "translation"}= @flash_card.character
-
-      -if (@flash_card.is_a? OriginalCard) && !@flash_card.audio_file.nil? && !(@flash_card.audio_file.empty?)
+      -if (@flash_card.is_a? TranslationCard) && !@flash_card.original_card.audio_file.nil? && !(@flash_card.original_card.audio_file.empty?)
         -#%audio{src: url_with_protocol(@flash_card.audio_file), preload: "auto"}
         
-        %btn.btn.btn-link.audio-play-pause.hide{data: {src: url_with_protocol(@flash_card.audio_file)}}
+        %btn.btn.btn-link.audio-play-pause.hide{data: {src: url_with_protocol(@flash_card.original_card.audio_file)}}
           %span.glyphicon.glyphicon-volume-up.audio-play
 
     -if @next_card != nil
