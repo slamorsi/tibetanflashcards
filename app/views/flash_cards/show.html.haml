@@ -1,11 +1,13 @@
 %p#notice= notice
 
+.center-block.text-center.instructions
+  %i swipe left for next card
 
 / -if can? :manage, @flash_card
 /   = link_to 'Edit', edit_flash_card_path(@flash_card)
 .flash_card_container
-  %a.flash_card{:href=>@reference_url, :data=>{:background=>@flash_card.background}}
-    .character_block
+  .flash_card{:data=>{:background=>@flash_card.background}}
+    %a.character_block{:href=>@reference_url}
       %span{class: (@flash_card.is_a? OriginalCard) ? "original" : "translation"}= @flash_card.character
       -if (@flash_card.is_a? TranslationCard) && !@flash_card.original_card.audio_file.nil? && !(@flash_card.original_card.audio_file.empty?)
         -#%audio{src: url_with_protocol(@flash_card.audio_file), preload: "auto"}

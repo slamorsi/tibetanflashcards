@@ -18,6 +18,7 @@ class FlashCardsController < ApplicationController
   end
 
   def show
+    @subTitle = "Consonants"
     @next_card = OriginalCard.random((@flash_card.is_a? OriginalCard) ? @flash_card : nil)
     if(@next_card != nil)
       @next_card = original_card_path(@next_card.first)

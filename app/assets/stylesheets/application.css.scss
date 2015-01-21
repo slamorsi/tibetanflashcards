@@ -25,8 +25,11 @@
  body{
   background: image-url("background.jpg") center no-repeat;
   background-size: 100% 100%;
+  min-height: 1200px;
  }
-
+.instructions{
+  color: rgb(167, 167, 167);
+}
 .title, .subtitle{
   text-align: center;
   color: red;
